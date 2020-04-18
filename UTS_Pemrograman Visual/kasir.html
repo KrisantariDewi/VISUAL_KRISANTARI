@@ -1,0 +1,94 @@
+<HTML>
+    <HEAD>
+        <TITLE>Program Kasir</TITLE>
+    <STYLE>
+        .tengah{
+            background-position: center;
+            width: auto;
+            height: auto;
+        }
+    table {
+        background-color:turquoise;
+        margin: auto;
+        font-weight: bold;
+        font-size: 16;
+    }
+    </STYLE>
+    </HEAD>
+    <BODY class ="tengah">
+
+        <TABLE>
+            <H2 ALIGN = "center" style= "background-color:turquoise;">Aplikasi Kasir Restoran Sederhana</H2>
+
+            <TR>
+                <TD>Nama Pesanan</TD>
+                <TD><SELECT id="nama_pesanan" onchange="total()">
+                    <option>Nasi Goreng</option>
+                    <option>Mie Goreng</option>
+                    <option>Steak Ayam</option>
+                    <option>Ayam Goreng</option>
+                    <option>Kentang Goreng</option>
+                    <option>Es Jeruk</option>
+                    <option>Es Kelapa Muda</option>
+                    <option>Es Capuccino</option>
+                    <option>Es Teller</option>
+                    <option>Es Campur</option>
+                </SELECT></TD>
+            </TR>
+        
+            <TR>
+                <TD>Harga Pesanan</TD>
+                <TD><input type ="number" id="harga_pesanan" onchange="total()"></TD>
+            </TR>
+
+            <TR>
+                <TD>Jumlah Pesanan</TD>
+                <TD><input type ="number" id="jumlah_pesanan" value="0" onchange="total()"></TD>
+            </TR>
+
+            <TR>
+                <TD>Total Belanja</TD>
+                <TD><input type ="text" id="total" disabled></TD>
+            </TR>
+
+            <TR>
+                <TD>Pembayaran</td>
+                <TD><input type ="number" id ="bayar" onchange="total()"></TD>
+            </TR>
+
+            <TR>
+                <TD>Kembalian</TD>
+                <TD><input type ="text" id="total1" disabled></TD>
+            </TR>
+
+            <TR>
+                <TABLE width="300" height="200px" BORDER="1">
+                    <TD><label ALIGN="landscape" id="cetak"></label></TD>
+                </TABLE>
+            </TR>
+        </TABLE><BR>
+
+            <marquee scrolldelay="100" direction="left" bgcolor="turquoise"> TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI</marquee>
+
+        <SCRIPT>
+            function total(){
+                var nama_pesanan = document.getElementById ('nama_pesanan').value;
+                var harga_pesanan = parseInt(document.getElementById('harga_pesanan').value);
+                var jumlah_pesanan = parseInt(document.getElementById('jumlah_pesanan').value);
+                var pembayaran = parseInt(document.getElementById('bayar').value);
+                var total = harga_pesanan*jumlah_pesanan;
+                document.getElementById('total').value = total;
+                var kembali = pembayaran - total;
+                document.getElementById('total1').value = kembali;
+
+                var cetak = "Nama Pesanan : "+nama_pesanan+"</br>"+
+                            "Harga Pesanan : "+harga_pesanan+"</br>"+
+                            "Jumlah Pesanan : "+jumlah_pesanan+"</br>"+
+                            "Total Belanja : "+total+"</br>"+
+                            "Pembayaran : "+pembayaran+"</br>"+
+                            "Kembalian : "+kembali;
+                            document.getElementById("cetak").innerHTML=cetak;
+            }
+    </SCRIPT>
+    </BODY>
+</HTML>
