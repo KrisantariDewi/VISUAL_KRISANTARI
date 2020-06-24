@@ -1,0 +1,235 @@
+<html>
+    <head>
+        <title> APLIKASI KASIR </title>
+    </head>
+<body>
+<script language ="javascript">
+function combo()
+{
+var kodepesanan = (document.forminput.inputkodepesanan.value);
+var namapesanan = "";
+var hargapesanan = 0.0;
+
+if (kodepesanan =="a01")
+    {
+    namapesanan = "Nasi Goreng";
+    hargapesanan = 10000;
+    }
+    else if(kodepesanan=="a02")
+    {
+    namapesanan = "Mie Ayam";
+    hargapesanan = 15000;
+    }
+    else if(kodepesanan=="a03")
+    {
+    namapesanan = "Steak Ayam";
+    hargapesanan = 30000;
+    }
+    else if(kodepesanan=="a04")
+    {
+    namapesanan = "Ayam Goreng";
+    hargapesanan = 20000;
+    }
+    else if(kodepesanan=="a05")
+    {
+    namapesanan = "Kentang Goreng";
+    hargapesanan = 10000;
+    }
+    else if(kodepesanan=="b01")
+    {
+    namapesanan = "Es Jeruk";
+    hargapesanan = 3000;
+    }
+    else if(kodepesanan=="b02")
+    {
+    namapesanan = "Es Kelapa Muda";
+    hargapesanan = 5000;
+    }
+    else if(kodepesanan=="b03")
+    {
+    namapesanan = "Es Capuccino";
+    hargapesanan = 10000;
+    }
+    else if(kodepesanan=="b04")
+    {
+    namapesanan = "Es Teler";
+    hargapesanan = 8000;
+    }
+    else if(kodepesanan=="b05")
+    {
+    namapesanan = "Es Campur";
+    hargapesanan = 8000;
+    }
+    else
+    {
+    namabarang = "";
+    hargabarang = 0;
+    }
+
+    document.forminput.inputnamapesanan.value=namapesanan;
+    document.forminput.inputhargapesanan.value=eval(hargapesanan);
+}
+
+function hitungtotal()
+{
+var hargapesanan = (document.forminput.inputhargapesanan.value);
+var jumlahpesanan = (document.forminput.inputjumlahpesanan.value);
+var totalbayar = 0.0;
+
+totalbayar = hargapesanan * jumlahpesanan;
+
+document.forminput.inputtotalbayar.value = eval(totalbayar);
+}
+
+function hitungkembalian()
+{
+var totalbayar = (document.forminput.inputtotalbayar.value);
+var uangbayar = (document.forminput.inputbayar.value);
+var kembalian = 0.0;
+
+kembalian = uangbayar - totalbayar;
+
+document.forminput.inputkembalian.value = eval(kembalian);
+}
+
+function simpan()
+{
+document.forminput.onamacustomer.value = document.forminput.inputnamacustomer.value;
+document.forminput.okodepesanan.value = document.forminput.inputkodepesanan.value;
+document.forminput.onamapesanan.value = document.forminput.inputnamapesanan.value;
+document.forminput.ohargapesanan.value = document.forminput.inputhargapesanan.value;
+document.forminput.ojumlahpesanan.value = document.forminput.inputjumlahpesanan.value;
+document.forminput.ototalbayar.value = document.forminput.inputtotalbayar.value;
+document.forminput.opembayaran.value = document.forminput.inputbayar.value;
+document.forminput.okembalian.value = document.forminput.inputkembalian.value;
+}
+</script>
+
+<form name= "forminput">
+<h1 align ="center"> KASIR RESTORAN </h1>
+<hr>
+
+<table align="center">
+
+<tr>
+<td>Nama Customer  :</td>
+<td><input type = "text" size ="15" name ="inputnamacustomer"></td>
+</tr>
+
+<tr>
+<td>Kode Pesanan :</td>
+<td><select name="inputkodepesanan" onclick="combo()">
+    <option value="caption">**List Kode**</option>
+    <option value="a01">A001</option>
+    <option value="a02">A002</option>
+    <option value="a03">A003</option>
+    <option value="a04">A004</option>
+    <option value="a05">A005</option>
+    <option value="b01">B001</option>
+    <option value="b02">B002</option>
+    <option value="b03">B003</option>
+    <option value="b04">B004</option>
+    <option value="b05">B005</option>  
+    </select></td>
+</tr>
+
+<tr>
+<td>Nama Pesanan :</td>
+<td><input type = "text" size ="15" name ="inputnamapesanan"></td>
+</tr>
+
+<tr>
+<td>Harga Pesanan    :</td>
+<td><input type = "text" size ="15" name ="inputhargapesanan"></td>
+</tr>
+
+<tr>
+<td>Jumlah Pesanan   :</td>
+<td><input type = "text" size ="15" name ="inputjumlahpesanan"></td>
+</tr>
+
+<tr>
+<td></td>
+<td><input type="button" value="Hitung Total" onclick="hitungtotal()"></td>
+</tr>
+
+<tr>
+<td>Total Pembayaran   :</td>
+<td><input type = "text" size ="15" name ="inputtotalbayar"></td>
+</tr>
+
+<tr>
+<td>Pembayaran  :</td>
+<td><input type = "text" size ="15" name ="inputbayar"></td>
+</tr>
+
+<tr>
+<td></td>
+<td><input type="button" value="Hitung Bayar" onclick="hitungkembalian()"></td>
+</tr>
+
+<tr>
+<td>Kembalian   :</td>
+<td><input type = "text" size ="15" name ="inputkembalian"></td>
+</tr>
+
+<tr>
+<td></td> 
+<td><input type="button" value="Simpan" onclick="simpan()"> <input type="reset" value="Ulang"></td>
+</tr>
+
+</table>
+
+<h1 align ="center"> OUTPUT </h1>
+<hr>
+
+<table align="center">
+
+<tr>
+<td>Nama Customer  :</td>
+<td><input type = "text" size ="15" name ="onamacustomer"></td>
+</tr>
+
+<tr>
+<td>Kode Pesanan :</td>
+<td><input type = "text" size ="15" name ="okodepesanan"></td>
+</tr>
+
+<tr>
+<td>Nama Pesanan :</td>
+<td><input type = "text" size ="15" name ="onamapesanan"></td>
+</tr>
+
+<tr>
+<td>Harga Pesanan    :</td>
+<td><input type = "text" size ="15" name ="ohargapesanan"></td>
+</tr>
+
+<tr>
+<td>Jumlah Pesanan  :</td>
+<td><input type = "text" size ="15" name ="ojumlahpesanan"></td>
+</tr>
+
+<tr>
+<td>Total Belanja :</td>
+<td><input type = "text" size ="15" name ="ototalbayar"></td>
+</tr>
+
+<tr>
+<td>Pembayaran :</td>
+<td><input type = "text" size ="15" name ="opembayaran"></td>
+</tr>
+
+<tr>
+<td>Kembalian   :</td>
+<td><input type = "text" size ="15" name ="okembalian"></td>
+</tr>
+
+</table>
+<br>
+
+<marquee scrolldelay="100" direction="left" font="20"> TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI</marquee>
+
+</form>
+</body>
+</html> 
